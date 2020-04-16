@@ -34,7 +34,7 @@ def controller():
 
     choice = 0
 
-    while choice != 3:
+    while choice != 15:
 
         choice = int(input('enter your choice: '))
 
@@ -44,21 +44,23 @@ def controller():
             state_code = input('Enter state code:')
 
             print(sdp.cumulative_data(date_to_fetch, state_code))
+
         elif choice == 2:
 
             date_to_fetch = input('Enter date:')
             state_code = input('Enter state code:')
 
             sdp.cumulative_series_datewise_data(date_to_fetch, state_code)
+
         elif choice == 3:
 
             state_code = input('Enter state code:')
 
             sdp.cumulative_last_3_days(state_code)
         
-        elif choice == 4:  :
+        elif choice == 4:  
 
-            sdp.cumulative_last_3_days_all_states()
+            sdp.cumulative_last_3_days_all_states(choice)
 
         elif choice == 5:
 
@@ -66,15 +68,15 @@ def controller():
 
         elif choice == 6:
 
-            sdp.cumulative_last_3_days_confirmed_dataframe()
+            sdp.cumulative_last_3_days_confirmed_dataframe(choice)
 
         elif choice == 7:
 
-            sdp.cumulative_last_3_days_recovered_dataframe()
+            sdp.cumulative_last_3_days_recovered_dataframe(choice)
 
         elif choice == 8:
 
-            sdp.cumulative_last_3_days_deceased_dataframe()
+            sdp.cumulative_last_3_days_deceased_dataframe(choice)
 
         elif choice == 9:
 

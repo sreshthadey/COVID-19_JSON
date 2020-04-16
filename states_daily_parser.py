@@ -145,16 +145,19 @@ def view_cumulative_last_3_days_all_states(resultset):
                 print(state, '\t\t', end = ' ')
                 print('C:', resultset[state][unique_date]['Confirmed'], ' || R:', resultset[state][unique_date]['Recovered'], ' || D:', resultset[state][unique_date]['Deceased'])
 
-def cumulative_last_3_days_all_states():
+def cumulative_last_3_days_all_states(choice):
 
     resultset = dict()
 
     for state in dataset:
         resultset[state['name']] = cumulative_last_3_days(state['code'], False)
     
-    return resultset
+    if choice == 4:
+            view_cumulative_last_3_days_all_states(resultset)
+    else:
+            return resultset
 
-    #view_cumulative_last_3_days_all_states(resultset)
+    
 
 
 def total_count(state_code):
@@ -194,7 +197,7 @@ def make_data_frame():
         df = pd.DataFrame(data, columns = ['STATE/UT', 'Confirmed', 'Recovered', 'Deceased'])
         print(df)
 
-def cumulative_last_3_days_confirmed_dataframe():
+def cumulative_last_3_days_confirmed_dataframe(choice):
 
     unique_states =  list()
     dates = dict()
@@ -204,7 +207,7 @@ def cumulative_last_3_days_confirmed_dataframe():
     for state in dataset:
         if state['name'] not in unique_states:
             unique_states.append(state['name'])
-    resultset = cumulative_last_3_days_all_states()
+    resultset = cumulative_last_3_days_all_states(choice)
     for state in resultset:
       
         for date in resultset[state]:
@@ -221,7 +224,7 @@ def cumulative_last_3_days_confirmed_dataframe():
     df = pd.DataFrame(data)
     print(df)
 
-def cumulative_last_3_days_recovered_dataframe():
+def cumulative_last_3_days_recovered_dataframe(choice):
 
     unique_states =  list()
     dates = dict()
@@ -233,7 +236,7 @@ def cumulative_last_3_days_recovered_dataframe():
         if state['name'] not in unique_states:
             unique_states.append(state['name'])
 
-    resultset = cumulative_last_3_days_all_states()
+    resultset = cumulative_last_3_days_all_states(choice)
 
     for state in resultset:
       
@@ -255,7 +258,7 @@ def cumulative_last_3_days_recovered_dataframe():
     print(df)
 
 
-def cumulative_last_3_days_deceased_dataframe():
+def cumulative_last_3_days_deceased_dataframe(choice):
 
     unique_states =  list()
     dates = dict()
@@ -267,7 +270,7 @@ def cumulative_last_3_days_deceased_dataframe():
         if state['name'] not in unique_states:
             unique_states.append(state['name'])
 
-    resultset = cumulative_last_3_days_all_states()
+    resultset = cumulative_last_3_days_all_states(choice)
 
     for state in resultset:
       
