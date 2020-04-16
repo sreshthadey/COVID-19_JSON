@@ -1,8 +1,8 @@
 import requests
 import model as m
 import pandas as pd
-dataset = m.initialize()
 
+dataset = m.initialize()
 unique_dates = list()
 
 raw_data = requests.get('https://api.covid19india.org/states_daily.json')
@@ -486,7 +486,7 @@ def cumulative_all_data_deceased():
             dates[date].append(cumulative_dict['Deceased'])
  
     data = {'STATE/UT':unique_states}
-    
+
     for date in dates:
         data[date] = dates[date]
    

@@ -19,7 +19,18 @@ def controller():
     print('press 2 to get cumulative series datewise data.')
     print('Press 3 to get cumulative data of last 3 days.')
     print('Press 4 to get cumulative data of last 3 days for all states.')
-    print('Press 5 to quit')
+    print('Press 5 to get data frame of total confirmed,recovered and deceased data till latest date')
+    print('Press 6 to get data frame of statewise cumulative last 3 days confirmed data')
+    print('Press 7 to get data frame of statewise cumulative last 3 days recovered data')
+    print('Press 8 to get data frame of statewise cumulative last 3 days deceased data')
+    print('Press 9 to get data frame of statewise confirmed data from start date to current date as in JSON file')
+    print('Press 10 to get data frame of statewise recovered data from start date to current date as in JSON file')
+    print('Press 11 to get data frame of statewise deceased data from start date to current date as in JSON file')
+    print('Press 12 to get data frame of cumulative statewise confirmed data from start date to current date')
+    print('Press 13 to get data frame of cumulative statewise recovered data from start date to current date')
+    print('Press 14 to get data frame of cumulative statewise deceased data from start date to current date')
+    print('Press 15 to quit')
+
 
     choice = 0
 
@@ -32,7 +43,7 @@ def controller():
             date_to_fetch = input('Enter date:')
             state_code = input('Enter state code:')
 
-            sdp.cumulative_data(date_to_fetch, state_code)
+            print(sdp.cumulative_data(date_to_fetch, state_code))
         elif choice == 2:
 
             date_to_fetch = input('Enter date:')
@@ -45,16 +56,57 @@ def controller():
 
             sdp.cumulative_last_3_days(state_code)
         
-        elif choice == 4:
+        elif choice == 4:  :
 
             sdp.cumulative_last_3_days_all_states()
-            
+
         elif choice == 5:
+
+            sdp.make_data_frame()
+
+        elif choice == 6:
+
+            sdp.cumulative_last_3_days_confirmed_dataframe()
+
+        elif choice == 7:
+
+            sdp.cumulative_last_3_days_recovered_dataframe()
+
+        elif choice == 8:
+
+            sdp.cumulative_last_3_days_deceased_dataframe()
+
+        elif choice == 9:
+
+            sdp.all_data_confirmed()
+
+        elif choice == 10:
+
+            sdp.all_data_recovered()
+
+        elif choice == 11:
+
+            sdp.all_data_deceased()
+
+        elif choice == 12:
+
+            sdp.cumulative_all_data_confirmed()
+
+        elif choice == 13:
+
+            sdp.cumulative_all_data_recovered()
+
+        elif choice == 14:
+
+            sdp.cumulative_all_data_deceased()
+            
+        elif choice == 15:
             break
+
         else:
             print('Invalid choice, please choose again\n')
 
     print("\nProgram has quit")
         
-#controller()
-check_confirmed()
+controller()
+#check_confirmed()
