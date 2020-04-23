@@ -7,7 +7,8 @@ def check_confirmed():
 
         for states in dataset[:-1]:
                 
-                if sdp.total_count(states['code']) == sdwp.total_count(states['code']):
+                result = sdp.total_count(states['code'])
+                if result['Confirmed'] == sdwp.total_count(states['code']):
 
                         print(states['name'], '   all is well')
                 else:
@@ -29,12 +30,13 @@ def controller():
     print('Press 12 to get data frame of cumulative statewise confirmed data from start date to current date')
     print('Press 13 to get data frame of cumulative statewise recovered data from start date to current date')
     print('Press 14 to get data frame of cumulative statewise deceased data from start date to current date')
-    print('Press 15 to quit')
+    print('Press 15 to know whether date in states_daily_json and data in state_district_wise.json are same or not.')
+    print('Press 16 to quit')
 
 
     choice = 0
 
-    while choice != 15:
+    while choice != 16:
 
         choice = int(input('enter your choice: '))
 
@@ -42,21 +44,39 @@ def controller():
 
             date_to_fetch = input('Enter date:')
             state_code = input('Enter state code:')
-
-            print(sdp.cumulative_data(date_to_fetch, state_code))
-
+            if sdp.state_code_validate(state_code) != 0: 
+                if sdp.date_validate(date_to_fetch) != 0:
+                    print(sdp.cumulative_data(date_to_fetch, state_code))
+                else:
+                    continue
+            else:
+                if sdp.date_validate(date_to_fetch) == 0:
+                    continue
+                else: 
+                    continue
+            
         elif choice == 2:
 
             date_to_fetch = input('Enter date:')
             state_code = input('Enter state code:')
-
-            sdp.cumulative_series_datewise_data(date_to_fetch, state_code)
+            if sdp.state_code_validate(state_code) != 0: 
+                if sdp.date_validate(date_to_fetch) != 0:
+                    sdp.cumulative_series_datewise_data(date_to_fetch, state_code)
+                else:
+                    continue
+            else:
+                if sdp.date_validate(date_to_fetch) == 0:
+                    continue
+                else: 
+                    continue
 
         elif choice == 3:
 
             state_code = input('Enter state code:')
-
-            sdp.cumulative_last_3_days(state_code)
+            if sdp.state_code_validate(state_code) != 0: 
+                sdp.cumulative_last_3_days(state_code)
+            else:
+                continue
         
         elif choice == 4:  
 
@@ -101,8 +121,12 @@ def controller():
         elif choice == 14:
 
             sdp.cumulative_all_data_deceased()
+ 
+        if choice == 15:
+
+            check_confirmed()
             
-        elif choice == 15:
+        elif choice == 16:
             break
 
         else:
@@ -111,4 +135,3 @@ def controller():
     print("\nProgram has quit")
         
 controller()
-#check_confirmed()

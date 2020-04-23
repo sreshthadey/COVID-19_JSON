@@ -1,6 +1,7 @@
 import requests
 import model as m
 import pandas as pd
+import datetime
 
 dataset = m.initialize()
 unique_dates = list()
@@ -25,6 +26,25 @@ for date in unique_dates:
                     state[date] = dict()
 
                 state[date][item['status']] = item[state['code']]
+
+def date_validate(date_text):
+    try:
+        datetime.datetime.strptime(date_text, '%d-%b-%y')
+    except ValueError:
+        print("Incorrect date format, should be dd-Mmm-yy")
+        return 0
+
+def state_code_validate(state_code):
+
+    unique_states = list()
+    for item in dataset:
+        unique_states.append(item['code'])
+    
+    if state_code in unique_states:
+        return 1
+    else:
+        print('Please enter a valid state code')
+        return 0
 
 def needs_patch(date_to_fetch, state_code):
 
@@ -495,6 +515,8 @@ def cumulative_all_data_deceased():
    
     df = pd.DataFrame(data)
     print(df)
+
+
 
 
 
