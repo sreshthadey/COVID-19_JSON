@@ -162,6 +162,7 @@ def view_cumulative_last_3_days_all_states(resultset):
         for state in resultset:
 
             if unique_date in resultset[state]:
+                
                 print(state, '\t\t', end = ' ')
                 print('C:', resultset[state][unique_date]['Confirmed'], ' || R:', resultset[state][unique_date]['Recovered'], ' || D:', resultset[state][unique_date]['Deceased'])
 

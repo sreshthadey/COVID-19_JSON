@@ -122,7 +122,7 @@ def controller():
 
             sdp.cumulative_all_data_deceased()
  
-        if choice == 15:
+        elif choice == 15:
 
             check_confirmed()
             
