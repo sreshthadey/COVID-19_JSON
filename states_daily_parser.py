@@ -99,25 +99,29 @@ def cumulative_data(date_to_fetch, state_code):
 
     should_stop = False
     cumulative_dict = dict()
+    if date_to_fetch in unique_dates:
+            for unique_date in unique_dates:
 
-    for unique_date in unique_dates:
+                if unique_date == date_to_fetch:
+                    should_stop = True
 
-        if unique_date == date_to_fetch:
-            should_stop = True
+                returned_dict = fetch_by_date_and_code(unique_date, state_code)
+                
+                for key in returned_dict:
 
-        returned_dict = fetch_by_date_and_code(unique_date, state_code)
-        
-        for key in returned_dict:
+                    if key in cumulative_dict:
+                        cumulative_dict[key] += int(returned_dict[key])
+                    else:
+                        cumulative_dict[key] = int(returned_dict[key])
 
-            if key in cumulative_dict:
-                cumulative_dict[key] += int(returned_dict[key])
-            else:
-                cumulative_dict[key] = int(returned_dict[key])
+                if should_stop:
+                    break
+            return cumulative_dict
 
-        if should_stop:
-            break
+    else:
+            return 0
+
     
-    return cumulative_dict
 
 
 def cumulative_series_datewise_data(date_to_fetch, state_code):

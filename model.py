@@ -9,32 +9,32 @@ def initialize():
     bihar = dict()
     chandigarh = dict()
     chhattisgarh = dict()
+    dadra_and_nagar_haveli = dict()
     daman_and_diu = dict()
     delhi = dict()
-    dadra_and_nagar_haveli = dict()
     goa = dict()
     gujarat = dict()
+    haryana = dict()
     himachal_pradesh = dict()
     jammu_and_kashmir = dict()
-    haryana = dict()
     jharkhand = dict()
     karnataka = dict()
     kerala = dict()
     ladakh = dict()
     lakshadweep = dict()
+    madhya_pradesh = dict()
     maharashtra = dict()
     meghalaya = dict()
     manipur = dict()
-    madhya_pradesh = dict()
     mizoram = dict()
     nagaland = dict()
     odisha = dict()
-    punjab = dict()
     puducherry = dict()
+    punjab = dict()
     rajasthan = dict()
     sikkim = dict()
-    telangana = dict()
     tamil_nadu = dict()
+    telangana = dict()
     tripura = dict()
     uttar_pradesh = dict()
     uttarakhand = dict()
@@ -48,32 +48,32 @@ def initialize():
     bihar['code'] = 'br'
     chandigarh['code'] = 'ch'
     chhattisgarh['code'] = 'ct'
+    dadra_and_nagar_haveli['code'] = 'dn'
     daman_and_diu['code'] = 'dd'
     delhi['code'] = 'dl'
-    dadra_and_nagar_haveli['code'] = 'dn'
     goa['code'] = 'ga'
     gujarat['code'] = 'gj'
+    haryana['code'] = 'hr'
     himachal_pradesh['code'] = 'hp'
     jammu_and_kashmir['code'] = 'jk'
-    haryana['code'] = 'hr'
     jharkhand['code'] = 'jh'
     karnataka['code'] = 'ka'
     kerala['code'] = 'kl'
     ladakh['code'] = 'la'
     lakshadweep['code'] = 'ld'
-    maharashtra['code'] = 'mh'
-    meghalaya['code'] = 'ml'
-    manipur['code'] = 'mn'
     madhya_pradesh['code'] = 'mp'
+    maharashtra['code'] = 'mh'
+    manipur['code'] = 'mn'
+    meghalaya['code'] = 'ml'
     mizoram['code'] = 'mz'
     nagaland['code'] = 'nl'
     odisha['code'] = 'or'
-    punjab['code'] = 'pb'
     puducherry['code'] = 'py'
+    punjab['code'] = 'pb'
     rajasthan['code'] = 'rj'
     sikkim['code'] = 'sk'
-    telangana['code'] = 'tg'
     tamil_nadu['code'] = 'tn'
+    telangana['code'] = 'tg'
     tripura['code'] = 'tr'
     uttar_pradesh['code'] = 'up'
     uttarakhand['code'] = 'ut'
@@ -87,9 +87,9 @@ def initialize():
     bihar['name'] = 'Bihar'
     chandigarh['name'] = 'Chandigarh'
     chhattisgarh['name'] = 'Chhattisgarh'
-    daman_and_diu['name'] = 'Daman and Diu'
+    daman_and_diu['name'] = 'Daman_and_diu'
     delhi['name'] = 'Delhi'
-    dadra_and_nagar_haveli['name'] = 'Dadra and Nagar Haveli'
+    dadra_and_nagar_haveli['name'] = 'Dadra and nagar haveli'
     goa['name'] = 'Goa'
     gujarat['name'] = 'Gujarat'
     himachal_pradesh['name'] = 'Himachal Pradesh'
@@ -103,7 +103,7 @@ def initialize():
     maharashtra['name'] = 'Maharashtra'
     meghalaya['name'] = 'Meghalaya'
     manipur['name'] = 'Manipur'
-    madhya_pradesh['name'] = 'Madhya Pradesh'
+    madhya_pradesh['name'] = 'Madhya_pradesh'
     mizoram['name'] = 'Mizoram'
     nagaland['name'] = 'Nagaland'
     odisha['name'] = 'Odisha'
@@ -126,32 +126,32 @@ def initialize():
     dataset.append(bihar)
     dataset.append(chandigarh)
     dataset.append(chhattisgarh)
+    dataset.append(dadra_and_nagar_haveli)
     dataset.append(daman_and_diu)
     dataset.append(delhi)
-    dataset.append(dadra_and_nagar_haveli)
     dataset.append(goa)
     dataset.append(gujarat)
+    dataset.append(haryana)
     dataset.append(himachal_pradesh)
     dataset.append(jammu_and_kashmir)
-    dataset.append(haryana)
     dataset.append(jharkhand)
     dataset.append(karnataka)
     dataset.append(kerala)
     dataset.append(ladakh)
     dataset.append(lakshadweep)
-    dataset.append(maharashtra)
-    dataset.append(meghalaya)
-    dataset.append(manipur)
     dataset.append(madhya_pradesh)
+    dataset.append(maharashtra)
+    dataset.append(manipur)
+    dataset.append(meghalaya)
     dataset.append(mizoram)
     dataset.append(nagaland)
     dataset.append(odisha)
-    dataset.append(punjab)
     dataset.append(puducherry)
+    dataset.append(punjab)
     dataset.append(rajasthan)
     dataset.append(sikkim)
-    dataset.append(telangana)
     dataset.append(tamil_nadu)
+    dataset.append(telangana)
     dataset.append(tripura)
     dataset.append(uttar_pradesh)
     dataset.append(uttarakhand)

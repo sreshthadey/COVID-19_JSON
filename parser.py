@@ -44,10 +44,21 @@ def controller():
 
             date_to_fetch = input('Enter date:')
             state_code = input('Enter state code:')
-            if sdp.state_code_validate(state_code) != 0: 
+            if state_code.islower() == False:
+                state_code = state_code.lower()
+            else:
+                state_code = state_code
+
+            if sdp.state_code_validate(state_code) != 0:
+
                 if sdp.date_validate(date_to_fetch) != 0:
-                    print(sdp.cumulative_data(date_to_fetch, state_code))
+
+                    if sdp.cumulative_data(date_to_fetch, state_code) == 0:
+                        print('Date does not exist')
+                    else:
+                        print(sdp.cumulative_data(date_to_fetch, state_code))
                 else:
+                    
                     continue
             else:
                 if sdp.date_validate(date_to_fetch) == 0:
@@ -59,6 +70,11 @@ def controller():
 
             date_to_fetch = input('Enter date:')
             state_code = input('Enter state code:')
+            if state_code.islower() == False:
+                state_code = state_code.lower()
+            else:
+                state_code = state_code
+
             if sdp.state_code_validate(state_code) != 0: 
                 if sdp.date_validate(date_to_fetch) != 0:
                     sdp.cumulative_series_datewise_data(date_to_fetch, state_code)
@@ -73,6 +89,11 @@ def controller():
         elif choice == 3:
 
             state_code = input('Enter state code:')
+            if state_code.islower() == False:
+                state_code = state_code.lower()
+            else:
+                state_code = state_code
+
             if sdp.state_code_validate(state_code) != 0: 
                 sdp.cumulative_last_3_days(state_code)
             else:
