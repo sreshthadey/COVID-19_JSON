@@ -77,7 +77,9 @@ def controller():
 
             if sdp.state_code_validate(state_code) != 0: 
                 if sdp.date_validate(date_to_fetch) != 0:
-                    sdp.cumulative_series_datewise_data(date_to_fetch, state_code)
+                    returned_dict = sdp.cumulative_series_datewise_data(date_to_fetch, state_code)
+                    for date in returned_dict:
+                        print(date, returned_dict[date])
                 else:
                     continue
             else:
@@ -95,53 +97,59 @@ def controller():
                 state_code = state_code
 
             if sdp.state_code_validate(state_code) != 0: 
-                sdp.cumulative_last_3_days(state_code)
+                returned_dict = sdp.cumulative_last_3_days(state_code)
+                for date in returned_dict:
+                        print(date, returned_dict[date])
             else:
                 continue
         
         elif choice == 4:  
 
-            sdp.cumulative_last_3_days_all_states(choice)
+            returned_dict = sdp.cumulative_last_3_days_all_states(choice)
+            for state in returned_dict:
+                    print(state)
+                    for date in returned_dict[state]:
+                        print(date, returned_dict[state][date])
 
         elif choice == 5:
 
-            sdp.make_data_frame()
+            print(sdp.make_data_frame())
 
         elif choice == 6:
 
-            sdp.cumulative_last_3_days_confirmed_dataframe(choice)
+            print(sdp.cumulative_last_3_days_confirmed_dataframe(choice))
 
         elif choice == 7:
 
-            sdp.cumulative_last_3_days_recovered_dataframe(choice)
+            print(sdp.cumulative_last_3_days_recovered_dataframe(choice))
 
         elif choice == 8:
 
-            sdp.cumulative_last_3_days_deceased_dataframe(choice)
+            print(sdp.cumulative_last_3_days_deceased_dataframe(choice))
 
         elif choice == 9:
 
-            sdp.all_data_confirmed()
+            print(sdp.all_data_confirmed())
 
         elif choice == 10:
 
-            sdp.all_data_recovered()
+            print(sdp.all_data_recovered())
 
         elif choice == 11:
 
-            sdp.all_data_deceased()
+            print(sdp.all_data_deceased())
 
         elif choice == 12:
 
-            sdp.cumulative_all_data_confirmed()
+            print(sdp.cumulative_all_data_confirmed())
 
         elif choice == 13:
 
-            sdp.cumulative_all_data_recovered()
+            print(sdp.cumulative_all_data_recovered())
 
         elif choice == 14:
 
-            sdp.cumulative_all_data_deceased()
+            print(sdp.cumulative_all_data_deceased())
  
         elif choice == 15:
 

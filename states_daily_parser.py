@@ -127,7 +127,7 @@ def cumulative_data(date_to_fetch, state_code):
 def cumulative_series_datewise_data(date_to_fetch, state_code):
 
     should_stop = False
-    #cumulative_dict = dict()
+    cumulative_series_datewise_dict = dict()
 
     if date_to_fetch in unique_dates:
 
@@ -136,14 +136,16 @@ def cumulative_series_datewise_data(date_to_fetch, state_code):
             if unique_date == date_to_fetch:
                 should_stop = True
         
-            print(unique_date, cumulative_data(unique_date, state_code))
+            cumulative_series_datewise_dict[unique_date] = cumulative_data(unique_date, state_code)
 
             if should_stop:
                 break
+
+        return cumulative_series_datewise_dict
     else:
         print('date does not exist')
 
-def cumulative_last_3_days(state_code, should_print = True):
+def cumulative_last_3_days(state_code, should_print = False):
 
     resultset = dict()
 
@@ -177,10 +179,8 @@ def cumulative_last_3_days_all_states(choice):
     for state in dataset:
         resultset[state['name']] = cumulative_last_3_days(state['code'], False)
     
-    if choice == 4:
-            view_cumulative_last_3_days_all_states(resultset)
-    else:
-            return resultset
+
+    return resultset
 
     
 
@@ -220,7 +220,7 @@ def make_data_frame():
 
         data = {'STATE/UT':unique_states, 'Confirmed':confirmed_list, 'Recovered':recovery_list, 'Deceased':deceased_list}
         df = pd.DataFrame(data, columns = ['STATE/UT', 'Confirmed', 'Recovered', 'Deceased'])
-        print(df)
+        return df
 
 def cumulative_last_3_days_confirmed_dataframe(choice):
 
@@ -247,7 +247,7 @@ def cumulative_last_3_days_confirmed_dataframe(choice):
 
     data = {'STATE/UT':unique_states, unique_dates[0]:dates[unique_dates[0]], unique_dates[1]:dates[unique_dates[1]], unique_dates[2]:dates[unique_dates[2]]}
     df = pd.DataFrame(data)
-    print(df)
+    return df
 
 def cumulative_last_3_days_recovered_dataframe(choice):
 
@@ -280,7 +280,7 @@ def cumulative_last_3_days_recovered_dataframe(choice):
     
     data = {'STATE/UT':unique_states, unique_dates[0]:dates[unique_dates[0]], unique_dates[1]:dates[unique_dates[1]], unique_dates[2]:dates[unique_dates[2]]}
     df = pd.DataFrame(data)
-    print(df)
+    return df
 
 
 def cumulative_last_3_days_deceased_dataframe(choice):
@@ -312,7 +312,7 @@ def cumulative_last_3_days_deceased_dataframe(choice):
 
     data = {'STATE/UT':unique_states, unique_dates[0]:dates[unique_dates[0]], unique_dates[1]:dates[unique_dates[1]], unique_dates[2]:dates[unique_dates[2]]}
     df = pd.DataFrame(data)
-    print(df)
+    return df
 
 
 def all_data_confirmed():
@@ -346,7 +346,7 @@ def all_data_confirmed():
         data[date] = dates[date]
    
     df = pd.DataFrame(data)
-    print(df)
+    return df
 
 def all_data_recovered():
 
@@ -380,7 +380,7 @@ def all_data_recovered():
         data[date] = dates[date]
    
     df = pd.DataFrame(data)
-    print(df)
+    return df
 
 def all_data_deceased():
 
@@ -413,7 +413,7 @@ def all_data_deceased():
         data[date] = dates[date]
    
     df = pd.DataFrame(data)
-    print(df)
+    return df
 
 def cumulative_all_data_confirmed():
 
@@ -447,7 +447,7 @@ def cumulative_all_data_confirmed():
         data[date] = dates[date]
    
     df = pd.DataFrame(data)
-    print(df)
+    return df
 
 def cumulative_all_data_recovered():
 
@@ -482,7 +482,7 @@ def cumulative_all_data_recovered():
         data[date] = dates[date]
    
     df = pd.DataFrame(data)
-    print(df)
+    return df
 
 def cumulative_all_data_deceased():
 
@@ -519,7 +519,7 @@ def cumulative_all_data_deceased():
         data[date] = dates[date]
    
     df = pd.DataFrame(data)
-    print(df)
+    return df
 
 
 
